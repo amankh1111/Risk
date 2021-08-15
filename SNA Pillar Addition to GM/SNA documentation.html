@@ -1,0 +1,1579 @@
+<html>
+<head>
+<title>SNA model</title>
+<meta charset="utf-8">
+<style>
+body{font: normal 10pt Helvetica, Arial, sans-serif;}
+.textbold{font-weight:bold;}
+.divcode{font-family:Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;}
+.divpic{padding-bottom: 20pt;}
+.textlabel{font-style:italic;font-size:8pt;}
+table{border-collapse:collapse;}
+</style>
+</head>
+<body><h1>SNA model - documentation</h1>
+<h2>Document information</h2>
+<div class="divpar">
+ <div class="divtext"><span class="textbold">Author:</span> Yulia Kovaleva</div>
+ <div class="divtext"><span class="textbold">Date:</span> 2020-09-11 11:00</div>
+</div>
+<h2>Data sample</h2>
+<h3>Target</h3><div class="divpar">
+ <div class="divtext"><span class="textbold">Target variable:</span> N4PD60</div>
+ <div class="divtext"><span class="textbold">Base variable:</span> new_base</div>
+</div>
+<h3>Sample characteristics</h3>
+<div class="divpar">
+ <div class="divpic"><img src="analysis/data_badrate.png" />
+ <br /><span class="textlabel">Observations and defaults in time</span></div>
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="5" halign="left">N4PD60</th>
+      <th colspan="5" halign="left">new_base</th>
+      <th colspan="5" halign="left">Rows</th>
+      <th colspan="5" halign="left">N4PD60 rate</th>
+    </tr>
+    <tr>
+      <th>data_type</th>
+      <th>hoot</th>
+      <th>oot</th>
+      <th>test</th>
+      <th>train</th>
+      <th>valid</th>
+      <th>hoot</th>
+      <th>oot</th>
+      <th>test</th>
+      <th>train</th>
+      <th>valid</th>
+      <th>hoot</th>
+      <th>oot</th>
+      <th>test</th>
+      <th>train</th>
+      <th>valid</th>
+      <th>hoot</th>
+      <th>oot</th>
+      <th>test</th>
+      <th>train</th>
+      <th>valid</th>
+    </tr>
+    <tr>
+      <th>month</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>201901</th>
+      <td>2145.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>18183.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>30000.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.117967</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>201902</th>
+      <td>2317.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>18416.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>30000.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.125815</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>201903</th>
+      <td></td>
+      <td></td>
+      <td>676.0</td>
+      <td>901.0</td>
+      <td>676.0</td>
+      <td></td>
+      <td></td>
+      <td>5653.0</td>
+      <td>7476.0</td>
+      <td>5622.0</td>
+      <td></td>
+      <td></td>
+      <td>9000.0</td>
+      <td>12000.0</td>
+      <td>9000.0</td>
+      <td></td>
+      <td></td>
+      <td>0.119583</td>
+      <td>0.120519</td>
+      <td>0.120242</td>
+    </tr>
+    <tr>
+      <th>201904</th>
+      <td></td>
+      <td></td>
+      <td>1793.0</td>
+      <td>2391.0</td>
+      <td>1793.0</td>
+      <td></td>
+      <td></td>
+      <td>17063.0</td>
+      <td>22739.0</td>
+      <td>17128.0</td>
+      <td></td>
+      <td></td>
+      <td>26998.0</td>
+      <td>35997.0</td>
+      <td>26998.0</td>
+      <td></td>
+      <td></td>
+      <td>0.105081</td>
+      <td>0.105150</td>
+      <td>0.104682</td>
+    </tr>
+    <tr>
+      <th>201905</th>
+      <td></td>
+      <td></td>
+      <td>1654.0</td>
+      <td>2205.0</td>
+      <td>1654.0</td>
+      <td></td>
+      <td></td>
+      <td>17314.0</td>
+      <td>22990.0</td>
+      <td>17316.0</td>
+      <td></td>
+      <td></td>
+      <td>27000.0</td>
+      <td>36000.0</td>
+      <td>27000.0</td>
+      <td></td>
+      <td></td>
+      <td>0.095530</td>
+      <td>0.095911</td>
+      <td>0.095519</td>
+    </tr>
+    <tr>
+      <th>201906</th>
+      <td></td>
+      <td></td>
+      <td>1559.0</td>
+      <td>2080.0</td>
+      <td>1560.0</td>
+      <td></td>
+      <td></td>
+      <td>17471.0</td>
+      <td>23170.0</td>
+      <td>17457.0</td>
+      <td></td>
+      <td></td>
+      <td>27000.0</td>
+      <td>36000.0</td>
+      <td>27000.0</td>
+      <td></td>
+      <td></td>
+      <td>0.089234</td>
+      <td>0.089771</td>
+      <td>0.089362</td>
+    </tr>
+    <tr>
+      <th>201907</th>
+      <td></td>
+      <td></td>
+      <td>1632.0</td>
+      <td>2176.0</td>
+      <td>1631.0</td>
+      <td></td>
+      <td></td>
+      <td>17578.0</td>
+      <td>23282.0</td>
+      <td>17519.0</td>
+      <td></td>
+      <td></td>
+      <td>27000.0</td>
+      <td>36000.0</td>
+      <td>27000.0</td>
+      <td></td>
+      <td></td>
+      <td>0.092843</td>
+      <td>0.093463</td>
+      <td>0.093099</td>
+    </tr>
+    <tr>
+      <th>201908</th>
+      <td></td>
+      <td>1797.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>19213.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>30004.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.093530</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>201909</th>
+      <td></td>
+      <td>1670.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>18241.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>30000.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.091552</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>201910</th>
+      <td></td>
+      <td>1425.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>17914.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>30000.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.079547</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+</div>
+<h3>Covariates</h3>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IV Train</th>
+      <th>Gini Train</th>
+      <th>IV Validate</th>
+      <th>Gini Validate</th>
+      <th>IV Test</th>
+      <th>Gini Test</th>
+      <th>IV OOT</th>
+      <th>Gini OOT</th>
+      <th>IV HOOT</th>
+      <th>Gini HOOT</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AVG_DPD_TOL_REG_WOE</th>
+      <td>0.140718</td>
+      <td>0.202911</td>
+      <td>0.117906</td>
+      <td>0.185298</td>
+      <td>0.135589</td>
+      <td>0.199967</td>
+      <td>0.134119</td>
+      <td>0.198487</td>
+      <td>0.141925</td>
+      <td>0.204050</td>
+    </tr>
+    <tr>
+      <th>ALT_PERC_PAID_ONTIME_MAX_WOE</th>
+      <td>0.056116</td>
+      <td>0.126729</td>
+      <td>0.066073</td>
+      <td>0.138848</td>
+      <td>0.068995</td>
+      <td>0.142928</td>
+      <td>0.057593</td>
+      <td>0.130969</td>
+      <td>0.077454</td>
+      <td>0.148726</td>
+    </tr>
+    <tr>
+      <th>ALT_CNT_REJ_24M_WOE</th>
+      <td>0.052519</td>
+      <td>0.120966</td>
+      <td>0.049252</td>
+      <td>0.113650</td>
+      <td>0.050527</td>
+      <td>0.119969</td>
+      <td>0.065603</td>
+      <td>0.136542</td>
+      <td>0.060562</td>
+      <td>0.124921</td>
+    </tr>
+    <tr>
+      <th>ACTIVE_LOANS_WOE</th>
+      <td>0.021310</td>
+      <td>0.078754</td>
+      <td>0.012343</td>
+      <td>0.058921</td>
+      <td>0.008957</td>
+      <td>0.051011</td>
+      <td>0.008586</td>
+      <td>0.049816</td>
+      <td>0.008507</td>
+      <td>0.047429</td>
+    </tr>
+    <tr>
+      <th>MAX_AMT_PRICE_APPS_WOE</th>
+      <td>0.019427</td>
+      <td>0.065147</td>
+      <td>0.022575</td>
+      <td>0.070486</td>
+      <td>0.013867</td>
+      <td>0.055037</td>
+      <td>0.017272</td>
+      <td>0.062772</td>
+      <td>0.023129</td>
+      <td>0.071079</td>
+    </tr>
+    <tr>
+      <th>PERC_M_GENDER_WOE</th>
+      <td>0.014425</td>
+      <td>0.055119</td>
+      <td>0.013372</td>
+      <td>0.053015</td>
+      <td>0.011335</td>
+      <td>0.048822</td>
+      <td>0.017487</td>
+      <td>0.060939</td>
+      <td>0.020896</td>
+      <td>0.065461</td>
+    </tr>
+    <tr>
+      <th>AVG_CD_MOBILE_APP_DATE_WOE</th>
+      <td>0.006451</td>
+      <td>0.038623</td>
+      <td>0.005091</td>
+      <td>0.033847</td>
+      <td>0.007873</td>
+      <td>0.042036</td>
+      <td>0.004194</td>
+      <td>0.028881</td>
+      <td>0.005320</td>
+      <td>0.034773</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+</div>
+<h2>Final scorecard</h2>
+<h3>Scorecard</h3>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Min</th>
+      <th>Max</th>
+      <th>Value</th>
+      <th>WOE</th>
+      <th>Beta</th>
+      <th>BiXi</th>
+      <th>Observations</th>
+      <th>Bads</th>
+      <th>Goods</th>
+      <th>Bad Rate</th>
+      <th>Bad Rate relative to population</th>
+      <th>% Observations</th>
+      <th>% Bads</th>
+      <th>% Goods</th>
+      <th>Lift</th>
+    </tr>
+    <tr>
+      <th>Variable</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AVG_DPD_TOL_REG</th>
+      <td>-inf</td>
+      <td>1.87</td>
+      <td></td>
+      <td>0.37</td>
+      <td>-0.73</td>
+      <td>-0.273</td>
+      <td>174528</td>
+      <td>7858</td>
+      <td>166670</td>
+      <td>4.5%</td>
+      <td>0.70</td>
+      <td>51.1%</td>
+      <td>35.8%</td>
+      <td>52.1%</td>
+      <td>0.687</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>1.87</td>
+      <td>4.60</td>
+      <td></td>
+      <td>-0.03</td>
+      <td>-0.73</td>
+      <td>0.025</td>
+      <td>48114</td>
+      <td>3243</td>
+      <td>44871</td>
+      <td>6.7%</td>
+      <td>1.05</td>
+      <td>14.1%</td>
+      <td>14.8%</td>
+      <td>14.0%</td>
+      <td>1.053</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>4.60</td>
+      <td>16.69</td>
+      <td></td>
+      <td>-0.30</td>
+      <td>-0.73</td>
+      <td>0.223</td>
+      <td>38479</td>
+      <td>3317</td>
+      <td>35162</td>
+      <td>8.6%</td>
+      <td>1.34</td>
+      <td>11.3%</td>
+      <td>15.1%</td>
+      <td>11.0%</td>
+      <td>1.375</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>16.69</td>
+      <td>inf</td>
+      <td></td>
+      <td>-0.63</td>
+      <td>-0.73</td>
+      <td>0.458</td>
+      <td>39322</td>
+      <td>4333</td>
+      <td>34989</td>
+      <td>11.0%</td>
+      <td>1.72</td>
+      <td>11.5%</td>
+      <td>19.7%</td>
+      <td>10.9%</td>
+      <td>1.805</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td></td>
+      <td></td>
+      <td>null</td>
+      <td>-0.18</td>
+      <td>-0.73</td>
+      <td>0.135</td>
+      <td>41302</td>
+      <td>3193</td>
+      <td>38109</td>
+      <td>7.7%</td>
+      <td>1.20</td>
+      <td>12.1%</td>
+      <td>14.6%</td>
+      <td>11.9%</td>
+      <td>1.221</td>
+    </tr>
+    <tr>
+      <th>ALT_CNT_REJ_24M</th>
+      <td>-inf</td>
+      <td>1.00</td>
+      <td></td>
+      <td>0.20</td>
+      <td>-0.61</td>
+      <td>-0.125</td>
+      <td>175882</td>
+      <td>9253</td>
+      <td>166629</td>
+      <td>5.3%</td>
+      <td>0.82</td>
+      <td>51.5%</td>
+      <td>42.2%</td>
+      <td>52.1%</td>
+      <td>0.809</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>1.00</td>
+      <td>2.00</td>
+      <td></td>
+      <td>-0.04</td>
+      <td>-0.61</td>
+      <td>0.024</td>
+      <td>82115</td>
+      <td>5570</td>
+      <td>76545</td>
+      <td>6.8%</td>
+      <td>1.06</td>
+      <td>24.0%</td>
+      <td>25.4%</td>
+      <td>23.9%</td>
+      <td>1.060</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>2.00</td>
+      <td>4.00</td>
+      <td></td>
+      <td>-0.23</td>
+      <td>-0.61</td>
+      <td>0.141</td>
+      <td>59131</td>
+      <td>4625</td>
+      <td>54506</td>
+      <td>7.8%</td>
+      <td>1.22</td>
+      <td>17.3%</td>
+      <td>21.1%</td>
+      <td>17.0%</td>
+      <td>1.237</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>4.00</td>
+      <td>inf</td>
+      <td></td>
+      <td>-0.48</td>
+      <td>-0.61</td>
+      <td>0.294</td>
+      <td>24617</td>
+      <td>2496</td>
+      <td>22121</td>
+      <td>10.1%</td>
+      <td>1.58</td>
+      <td>7.2%</td>
+      <td>11.4%</td>
+      <td>6.9%</td>
+      <td>1.644</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td></td>
+      <td></td>
+      <td>null</td>
+      <td>0.00</td>
+      <td>-0.61</td>
+      <td>0.000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>AVG_CD_MOBILE_APP_DATE</th>
+      <td>-inf</td>
+      <td>330.00</td>
+      <td></td>
+      <td>-0.10</td>
+      <td>-1.37</td>
+      <td>0.139</td>
+      <td>124463</td>
+      <td>8790</td>
+      <td>115673</td>
+      <td>7.1%</td>
+      <td>1.10</td>
+      <td>36.4%</td>
+      <td>40.1%</td>
+      <td>36.2%</td>
+      <td>1.107</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>330.00</td>
+      <td>inf</td>
+      <td></td>
+      <td>0.06</td>
+      <td>-1.37</td>
+      <td>-0.083</td>
+      <td>209952</td>
+      <td>12700</td>
+      <td>197252</td>
+      <td>6.0%</td>
+      <td>0.94</td>
+      <td>61.4%</td>
+      <td>57.9%</td>
+      <td>61.7%</td>
+      <td>0.938</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td></td>
+      <td></td>
+      <td>null</td>
+      <td>0.00</td>
+      <td>-1.37</td>
+      <td>0.000</td>
+      <td>7330</td>
+      <td>454</td>
+      <td>6876</td>
+      <td>6.2%</td>
+      <td>0.96</td>
+      <td>2.1%</td>
+      <td>2.1%</td>
+      <td>2.2%</td>
+      <td>0.962</td>
+    </tr>
+    <tr>
+      <th>ALT_PERC_PAID_ONTIME_MAX</th>
+      <td>-inf</td>
+      <td>0.34</td>
+      <td></td>
+      <td>-0.45</td>
+      <td>-0.63</td>
+      <td>0.283</td>
+      <td>35958</td>
+      <td>3527</td>
+      <td>32431</td>
+      <td>9.8%</td>
+      <td>1.53</td>
+      <td>10.5%</td>
+      <td>16.1%</td>
+      <td>10.1%</td>
+      <td>1.585</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0.34</td>
+      <td>0.66</td>
+      <td></td>
+      <td>-0.18</td>
+      <td>-0.63</td>
+      <td>0.116</td>
+      <td>37548</td>
+      <td>2901</td>
+      <td>34647</td>
+      <td>7.7%</td>
+      <td>1.20</td>
+      <td>11.0%</td>
+      <td>13.2%</td>
+      <td>10.8%</td>
+      <td>1.220</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0.66</td>
+      <td>0.90</td>
+      <td></td>
+      <td>0.06</td>
+      <td>-0.63</td>
+      <td>-0.038</td>
+      <td>77335</td>
+      <td>4753</td>
+      <td>72582</td>
+      <td>6.1%</td>
+      <td>0.96</td>
+      <td>22.6%</td>
+      <td>21.7%</td>
+      <td>22.7%</td>
+      <td>0.954</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0.90</td>
+      <td>inf</td>
+      <td></td>
+      <td>0.22</td>
+      <td>-0.63</td>
+      <td>-0.141</td>
+      <td>149602</td>
+      <td>7570</td>
+      <td>142032</td>
+      <td>5.1%</td>
+      <td>0.79</td>
+      <td>43.8%</td>
+      <td>34.5%</td>
+      <td>44.4%</td>
+      <td>0.777</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td></td>
+      <td></td>
+      <td>null</td>
+      <td>-0.18</td>
+      <td>-0.63</td>
+      <td>0.117</td>
+      <td>41302</td>
+      <td>3193</td>
+      <td>38109</td>
+      <td>7.7%</td>
+      <td>1.20</td>
+      <td>12.1%</td>
+      <td>14.6%</td>
+      <td>11.9%</td>
+      <td>1.221</td>
+    </tr>
+    <tr>
+      <th>ACTIVE_LOANS</th>
+      <td>-inf</td>
+      <td>1.00</td>
+      <td></td>
+      <td>0.17</td>
+      <td>-0.77</td>
+      <td>-0.129</td>
+      <td>141097</td>
+      <td>8058</td>
+      <td>133039</td>
+      <td>5.7%</td>
+      <td>0.89</td>
+      <td>41.3%</td>
+      <td>36.7%</td>
+      <td>41.6%</td>
+      <td>0.883</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>1.00</td>
+      <td>2.00</td>
+      <td></td>
+      <td>-0.04</td>
+      <td>-0.77</td>
+      <td>0.034</td>
+      <td>124103</td>
+      <td>8160</td>
+      <td>115943</td>
+      <td>6.6%</td>
+      <td>1.02</td>
+      <td>36.3%</td>
+      <td>37.2%</td>
+      <td>36.3%</td>
+      <td>1.026</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>2.00</td>
+      <td>inf</td>
+      <td></td>
+      <td>-0.20</td>
+      <td>-0.77</td>
+      <td>0.151</td>
+      <td>76545</td>
+      <td>5726</td>
+      <td>70819</td>
+      <td>7.5%</td>
+      <td>1.16</td>
+      <td>22.4%</td>
+      <td>26.1%</td>
+      <td>22.1%</td>
+      <td>1.178</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td></td>
+      <td></td>
+      <td>null</td>
+      <td>0.00</td>
+      <td>-0.77</td>
+      <td>0.000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>PERC_M_GENDER</th>
+      <td>-inf</td>
+      <td>0.89</td>
+      <td></td>
+      <td>-0.18</td>
+      <td>-0.73</td>
+      <td>0.132</td>
+      <td>95267</td>
+      <td>7246</td>
+      <td>88021</td>
+      <td>7.6%</td>
+      <td>1.18</td>
+      <td>27.9%</td>
+      <td>33.0%</td>
+      <td>27.5%</td>
+      <td>1.200</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0.89</td>
+      <td>inf</td>
+      <td></td>
+      <td>0.08</td>
+      <td>-0.73</td>
+      <td>-0.057</td>
+      <td>246478</td>
+      <td>14698</td>
+      <td>231780</td>
+      <td>6.0%</td>
+      <td>0.93</td>
+      <td>72.1%</td>
+      <td>67.0%</td>
+      <td>72.5%</td>
+      <td>0.924</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td></td>
+      <td></td>
+      <td>null</td>
+      <td>0.00</td>
+      <td>-0.73</td>
+      <td>0.000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>MAX_AMT_PRICE_APPS</th>
+      <td>-inf</td>
+      <td>19925.00</td>
+      <td></td>
+      <td>0.10</td>
+      <td>-0.55</td>
+      <td>-0.056</td>
+      <td>229530</td>
+      <td>13420</td>
+      <td>216110</td>
+      <td>5.8%</td>
+      <td>0.91</td>
+      <td>67.2%</td>
+      <td>61.2%</td>
+      <td>67.6%</td>
+      <td>0.905</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>19925.00</td>
+      <td>inf</td>
+      <td></td>
+      <td>-0.18</td>
+      <td>-0.55</td>
+      <td>0.099</td>
+      <td>111402</td>
+      <td>8445</td>
+      <td>102957</td>
+      <td>7.6%</td>
+      <td>1.18</td>
+      <td>32.6%</td>
+      <td>38.5%</td>
+      <td>32.2%</td>
+      <td>1.195</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td></td>
+      <td></td>
+      <td>null</td>
+      <td>0.00</td>
+      <td>-0.55</td>
+      <td>0.000</td>
+      <td>813</td>
+      <td>79</td>
+      <td>734</td>
+      <td>9.7%</td>
+      <td>1.51</td>
+      <td>0.2%</td>
+      <td>0.4%</td>
+      <td>0.2%</td>
+      <td>1.569</td>
+    </tr>
+    <tr>
+      <th>_Intercept</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>-2.68</td>
+      <td>-2.681</td>
+      <td>341745</td>
+      <td>21944</td>
+      <td>319801</td>
+      <td>6.4%</td>
+      <td>1.00</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>100.0%</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+</div>
+<h3>Scoring SQL</h3>
+<div class="divpar">
+ <div class="divcode">
+select<br />1/(1+exp(-s.LINEAR_SCORE))&nbsp;as&nbsp;SCORE,<br />s.*<br />from&nbsp;(<br />&nbsp;&nbsp;&nbsp;&nbsp;select<br />&nbsp;&nbsp;&nbsp;&nbsp;w.AVG_DPD_TOL_REG_WOE&nbsp;*&nbsp;-0.7322298192942214<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;w.ALT_CNT_REJ_24M_WOE&nbsp;*&nbsp;-0.609590072914556<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;w.AVG_CD_MOBILE_APP_DATE_WOE&nbsp;*&nbsp;-1.3655652080519618<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;w.ALT_PERC_PAID_ONTIME_MAX_WOE&nbsp;*&nbsp;-0.6333127360988279<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;w.ACTIVE_LOANS_WOE&nbsp;*&nbsp;-0.7741505704697255<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;w.PERC_M_GENDER_WOE&nbsp;*&nbsp;-0.7346195261641384<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;w.MAX_AMT_PRICE_APPS_WOE&nbsp;*&nbsp;-0.5544617498993549<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;w.Intercept&nbsp;*&nbsp;-2.6810559614024543<br />&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;LINEAR_SCORE,<br />&nbsp;&nbsp;&nbsp;&nbsp;w.*<br />&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_DPD_TOL_REG&nbsp;<&nbsp;1.87&nbsp;then&nbsp;0.3724495314469243<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_DPD_TOL_REG&nbsp;<&nbsp;4.6&nbsp;then&nbsp;-0.034597543331789105<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_DPD_TOL_REG&nbsp;<&nbsp;16.69&nbsp;then&nbsp;-0.3039906459746704<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_DPD_TOL_REG&nbsp;>=&nbsp;16.69&nbsp;then&nbsp;-0.6253659725229781<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_DPD_TOL_REG&nbsp;is&nbsp;null&nbsp;then&nbsp;-0.18459074950634946<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;-0.18459074950634946<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;AVG_DPD_TOL_REG_WOE,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_CNT_REJ_24M&nbsp;<&nbsp;1.0&nbsp;then&nbsp;0.2042872209469011<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_CNT_REJ_24M&nbsp;<&nbsp;2.0&nbsp;then&nbsp;-0.03994392216445908<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_CNT_REJ_24M&nbsp;<&nbsp;4.0&nbsp;then&nbsp;-0.23071285776558925<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_CNT_REJ_24M&nbsp;>=&nbsp;4.0&nbsp;then&nbsp;-0.4816570768971693<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_CNT_REJ_24M&nbsp;is&nbsp;null&nbsp;then&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;ALT_CNT_REJ_24M_WOE,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_CD_MOBILE_APP_DATE&nbsp;<&nbsp;330.0&nbsp;then&nbsp;-0.10149612230818184<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_CD_MOBILE_APP_DATE&nbsp;>=&nbsp;330.0&nbsp;then&nbsp;0.06092994055897849<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;AVG_CD_MOBILE_APP_DATE&nbsp;is&nbsp;null&nbsp;then&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;AVG_CD_MOBILE_APP_DATE_WOE,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_PERC_PAID_ONTIME_MAX&nbsp;<&nbsp;0.34&nbsp;then&nbsp;-0.4473403790648933<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_PERC_PAID_ONTIME_MAX&nbsp;<&nbsp;0.66&nbsp;then&nbsp;-0.1829219050257822<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_PERC_PAID_ONTIME_MAX&nbsp;<&nbsp;0.9&nbsp;then&nbsp;0.05996007211925436<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_PERC_PAID_ONTIME_MAX&nbsp;>=&nbsp;0.9&nbsp;then&nbsp;0.22216751204382712<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ALT_PERC_PAID_ONTIME_MAX&nbsp;is&nbsp;null&nbsp;then&nbsp;-0.18459074950634946<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;-0.18459074950634946<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;ALT_PERC_PAID_ONTIME_MAX_WOE,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ACTIVE_LOANS&nbsp;<&nbsp;1.0&nbsp;then&nbsp;0.16713384831270695<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ACTIVE_LOANS&nbsp;<&nbsp;2.0&nbsp;then&nbsp;-0.04420022234721532<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ACTIVE_LOANS&nbsp;>=&nbsp;2.0&nbsp;then&nbsp;-0.19515062835186825<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;ACTIVE_LOANS&nbsp;is&nbsp;null&nbsp;then&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;ACTIVE_LOANS_WOE,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;PERC_M_GENDER&nbsp;<&nbsp;0.89&nbsp;then&nbsp;-0.17965923268063433<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;PERC_M_GENDER&nbsp;>=&nbsp;0.89&nbsp;then&nbsp;0.07800482871223258<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;PERC_M_GENDER&nbsp;is&nbsp;null&nbsp;then&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;PERC_M_GENDER_WOE,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;MAX_AMT_PRICE_APPS&nbsp;<&nbsp;19925.0&nbsp;then&nbsp;0.10053047310180752<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;MAX_AMT_PRICE_APPS&nbsp;>=&nbsp;19925.0&nbsp;then&nbsp;-0.17840756532767044<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;MAX_AMT_PRICE_APPS&nbsp;is&nbsp;null&nbsp;then&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;0.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;MAX_AMT_PRICE_APPS_WOE,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;1=1&nbsp;then&nbsp;1.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;as&nbsp;Intercept<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;_SOURCETABLENAME_<br />&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;w<br />)&nbsp;s
+ </div>
+</div>
+<h2>Predictors</h2>
+<h3>AVG_DPD_TOL_REG</h3>
+<h4>Grouping</h4><div class="divpar">
+ <div class="divpic"><img src="predictors/AVG_DPD_TOL_REG_binning.png" /></div>
+</div>
+<h4>Stability</h4><div class="divpar">
+ <div class="divpic"><img src="stability/AVG_DPD_TOL_REG_WOE.png" /></div>
+</div>
+<h3>ALT_CNT_REJ_24M</h3>
+<h4>Grouping</h4><div class="divpar">
+ <div class="divpic"><img src="predictors/ALT_CNT_REJ_24M_binning.png" /></div>
+</div>
+<h4>Stability</h4><div class="divpar">
+ <div class="divpic"><img src="stability/ALT_CNT_REJ_24M_WOE.png" /></div>
+</div>
+<h3>AVG_CD_MOBILE_APP_DATE</h3>
+<h4>Grouping</h4><div class="divpar">
+ <div class="divpic"><img src="predictors/AVG_CD_MOBILE_APP_DATE_binning.png" /></div>
+</div>
+<h4>Stability</h4><div class="divpar">
+ <div class="divpic"><img src="stability/AVG_CD_MOBILE_APP_DATE_WOE.png" /></div>
+</div>
+<h3>ALT_PERC_PAID_ONTIME_MAX</h3>
+<h4>Grouping</h4><div class="divpar">
+ <div class="divpic"><img src="predictors/ALT_PERC_PAID_ONTIME_MAX_binning.png" /></div>
+</div>
+<h4>Stability</h4><div class="divpar">
+ <div class="divpic"><img src="stability/ALT_PERC_PAID_ONTIME_MAX_WOE.png" /></div>
+</div>
+<h3>ACTIVE_LOANS</h3>
+<h4>Grouping</h4><div class="divpar">
+ <div class="divpic"><img src="predictors/ACTIVE_LOANS_binning.png" /></div>
+</div>
+<h4>Stability</h4><div class="divpar">
+ <div class="divpic"><img src="stability/ACTIVE_LOANS_WOE.png" /></div>
+</div>
+<h3>PERC_M_GENDER</h3>
+<h4>Grouping</h4><div class="divpar">
+ <div class="divpic"><img src="predictors/PERC_M_GENDER_binning.png" /></div>
+</div>
+<h4>Stability</h4><div class="divpar">
+ <div class="divpic"><img src="stability/PERC_M_GENDER_WOE.png" /></div>
+</div>
+<h3>MAX_AMT_PRICE_APPS</h3>
+<h4>Grouping</h4><div class="divpar">
+ <div class="divpic"><img src="predictors/MAX_AMT_PRICE_APPS_binning.png" /></div>
+</div>
+<h4>Stability</h4><div class="divpar">
+ <div class="divpic"><img src="stability/MAX_AMT_PRICE_APPS_WOE.png" /></div>
+</div>
+<h2>Correlations</h2>
+<h3>Correlation matrix between WOE variables</h3>
+<div class="divpar">
+ <div class="divpic"><img src="analysis/correlation.png" />
+ <br /><span class="textlabel">Correlation of WOE variables</span></div>
+</div>
+<h2>Model evaluation</h2>
+<h3>Performance</h3>
+<h4>General performance</h4>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gini</th>
+      <th>lift_10</th>
+      <th>KS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>score</th>
+      <td>SCORE</td>
+      <td>SCORE</td>
+      <td>SCORE</td>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>hoot</th>
+      <td>0.2579093756653108</td>
+      <td>2.1147908587103244</td>
+      <td>0.197078329396568</td>
+    </tr>
+    <tr>
+      <th>oot</th>
+      <td>0.24758190648443024</td>
+      <td>2.021206826195683</td>
+      <td>0.18171583915111822</td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>0.24558928833760119</td>
+      <td>1.9777749137171499</td>
+      <td>0.17909165919744358</td>
+    </tr>
+    <tr>
+      <th>train</th>
+      <td>0.2566229015700985</td>
+      <td>1.9832681542315795</td>
+      <td>0.19486190297484268</td>
+    </tr>
+    <tr>
+      <th>valid</th>
+      <td>0.24031731245821697</td>
+      <td>1.9174256750574976</td>
+      <td>0.17613950224725938</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+ <div class="divpic"><img src="performance/roc.png" />
+ <br /><span class="textlabel">ROC curve</span></div>
+ <div class="divpic"><img src="performance/lift.png" />
+ <br /><span class="textlabel">Lift curve</span></div>
+</div>
+<h4>Performance stability</h4>
+<div class="divpar">
+ <div class="divpic"><img src="performance/ginistability.png" />
+ <br /><span class="textlabel">Stability of Gini in time</span></div>
+</div>
+<h3>Marginal Contribution</h3>
+<h4>Removing predictors</h4>
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>addrm</th>
+      <th>predictor</th>
+      <th>Gini</th>
+      <th>diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>removed</td>
+      <td>ACTIVE_LOANS_WOE</td>
+      <td>23.741688</td>
+      <td>-0.290043</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>removed</td>
+      <td>AVG_CD_MOBILE_APP_DATE_WOE</td>
+      <td>23.643449</td>
+      <td>-0.388282</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>removed</td>
+      <td>MAX_AMT_PRICE_APPS_WOE</td>
+      <td>23.620169</td>
+      <td>-0.411562</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>removed</td>
+      <td>PERC_M_GENDER_WOE</td>
+      <td>23.556478</td>
+      <td>-0.475254</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>removed</td>
+      <td>ALT_CNT_REJ_24M_WOE</td>
+      <td>23.113109</td>
+      <td>-0.918622</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>removed</td>
+      <td>ALT_PERC_PAID_ONTIME_MAX_WOE</td>
+      <td>22.958651</td>
+      <td>-1.073080</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>removed</td>
+      <td>AVG_DPD_TOL_REG_WOE</td>
+      <td>21.864692</td>
+      <td>-2.167039</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+<h3>Performance on shorter target</h3>
+<h4>General performance</h4>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gini</th>
+      <th>lift_10</th>
+      <th>KS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>score</th>
+      <td>SCORE</td>
+      <td>SCORE</td>
+      <td>SCORE</td>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>short base test &amp; oot</th>
+      <td>0.1696663709916626</td>
+      <td>1.8608833146527572</td>
+      <td>0.11043736120897041</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+</div>
+<h4>Performance stability</h4>
+<div class="divpar">
+ <div class="divpic"><img src="performance/ginistability_shorttarget.png" />
+ <br /><span class="textlabel">Stability of Gini in time</span></div>
+</div>
+<h3>Calibration</h3>
+<div class="divpar">
+ <div class="divpic"><img src="model/calibration.png" />
+ <br /><span class="textlabel">Model calibration chart</span></div>
+</div>
+<h2>Comparison with current model (3 type of connections)</h2>
+<h3>Performance comparison</h3>
+<h4>General performance</h4>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">gini</th>
+      <th colspan="2" halign="left">lift_10</th>
+      <th colspan="2" halign="left">KS</th>
+      <th colspan="2" halign="left">hit_rate</th>
+    </tr>
+    <tr>
+      <th>score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>hoot</th>
+      <td>0.269962</td>
+      <td>0.203175</td>
+      <td>2.122921</td>
+      <td>1.591392</td>
+      <td>0.210169</td>
+      <td>0.158321</td>
+      <td>0.609983</td>
+      <td>0.549083</td>
+    </tr>
+    <tr>
+      <th>oot</th>
+      <td>0.260541</td>
+      <td>0.186745</td>
+      <td>2.084329</td>
+      <td>1.538523</td>
+      <td>0.191152</td>
+      <td>0.139906</td>
+      <td>0.615173</td>
+      <td>0.537132</td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>0.253449</td>
+      <td>0.194737</td>
+      <td>2.012043</td>
+      <td>1.605135</td>
+      <td>0.182467</td>
+      <td>0.151245</td>
+      <td>0.641712</td>
+      <td>0.567446</td>
+    </tr>
+    <tr>
+      <th>valid</th>
+      <td>0.246096</td>
+      <td>0.186499</td>
+      <td>1.950920</td>
+      <td>1.483541</td>
+      <td>0.179184</td>
+      <td>0.147009</td>
+      <td>0.641396</td>
+      <td>0.565275</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+<h4>Performance: NO HIT current model</h4>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>gini</th>
+      <th>lift_10</th>
+      <th>KS</th>
+    </tr>
+    <tr>
+      <th>score</th>
+      <th>SCORE</th>
+      <th>SCORE</th>
+      <th>SCORE</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>hoot</th>
+      <td>0.169647</td>
+      <td>1.779587</td>
+      <td>0.125054</td>
+    </tr>
+    <tr>
+      <th>oot</th>
+      <td>0.186491</td>
+      <td>1.799097</td>
+      <td>0.145524</td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>0.189004</td>
+      <td>1.734628</td>
+      <td>0.155007</td>
+    </tr>
+    <tr>
+      <th>valid</th>
+      <td>0.208644</td>
+      <td>1.782337</td>
+      <td>0.163896</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+ <div class="divpic"><img src="performance/comparison_roc.png" />
+ <br /><span class="textlabel">ROC curve</span></div>
+ <div class="divpic"><img src="performance/comparison_lift.png" />
+ <br /><span class="textlabel">Lift curve</span></div>
+</div>
+<h4>Performance stability</h4>
+<div class="divpar">
+ <div class="divpic"><img src="performance/comparison_ginistability.png" />
+ <br /><span class="textlabel">Stability of Gini in time</span></div>
+</div>
+<h3>Transition matrices</h3>
+<h4>Bad rate matrix</h4>
+<div class="divpar">
+ <div class="divpic"><img src="analysis/devpop_matrix_default.png" />
+ <br /><span class="textlabel">Default rate matrix</span></div>
+</div>
+<h4>Transition matrix - development sample</h4>
+<div class="divpar">
+ <div class="divpic"><img src="analysis/devpop_matrix_transition.png" />
+ <br /><span class="textlabel">Transition matrix</span></div>
+</div>
+<h2>Comparison with current model (only 1 type of connection: alter->primary)</h2>
+<h3>Performance comparison</h3>
+<h4>General performance</h4>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">gini</th>
+      <th colspan="2" halign="left">lift_10</th>
+      <th colspan="2" halign="left">KS</th>
+      <th colspan="2" halign="left">hit_rate</th>
+    </tr>
+    <tr>
+      <th>score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+      <th>SCORE</th>
+      <th>old_score</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>hoot</th>
+      <td>0.300531</td>
+      <td>0.206583</td>
+      <td>2.203946</td>
+      <td>1.556260</td>
+      <td>0.229887</td>
+      <td>0.169979</td>
+      <td>0.609983</td>
+      <td>0.275633</td>
+    </tr>
+    <tr>
+      <th>oot</th>
+      <td>0.285131</td>
+      <td>0.193698</td>
+      <td>2.104933</td>
+      <td>1.544487</td>
+      <td>0.211206</td>
+      <td>0.159492</td>
+      <td>0.615173</td>
+      <td>0.277677</td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>0.269743</td>
+      <td>0.198677</td>
+      <td>2.042779</td>
+      <td>1.591086</td>
+      <td>0.195217</td>
+      <td>0.167647</td>
+      <td>0.641712</td>
+      <td>0.290048</td>
+    </tr>
+    <tr>
+      <th>valid</th>
+      <td>0.267210</td>
+      <td>0.189265</td>
+      <td>2.019497</td>
+      <td>1.500278</td>
+      <td>0.199108</td>
+      <td>0.156955</td>
+      <td>0.641396</td>
+      <td>0.289535</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+<h4>Performance: NO HIT current model</h4>
+<div class="divpar">
+ <div class="divtab">
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>gini</th>
+      <th>lift_10</th>
+      <th>KS</th>
+    </tr>
+    <tr>
+      <th>score</th>
+      <th>SCORE</th>
+      <th>SCORE</th>
+      <th>SCORE</th>
+    </tr>
+    <tr>
+      <th>sample</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>hoot</th>
+      <td>0.224864</td>
+      <td>1.971667</td>
+      <td>0.173571</td>
+    </tr>
+    <tr>
+      <th>oot</th>
+      <td>0.219274</td>
+      <td>1.938293</td>
+      <td>0.164076</td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>0.224877</td>
+      <td>1.871776</td>
+      <td>0.171316</td>
+    </tr>
+    <tr>
+      <th>valid</th>
+      <td>0.219641</td>
+      <td>1.869143</td>
+      <td>0.163590</td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+ <div class="divpic"><img src="performance/comparison_old_roc.png" />
+ <br /><span class="textlabel">ROC curve</span></div>
+ <div class="divpic"><img src="performance/comparison_old_lift.png" />
+ <br /><span class="textlabel">Lift curve</span></div>
+</div>
+<h4>Performance stability</h4>
+<div class="divpar">
+ <div class="divpic"><img src="performance/comparison_ginistability_old.png" />
+ <br /><span class="textlabel">Stability of Gini in time</span></div>
+</div>
+<h3>Transition matrices</h3>
+<h4>Bad rate matrix</h4>
+<div class="divpar">
+ <div class="divpic"><img src="analysis/devpop_old_matrix_default.png" />
+ <br /><span class="textlabel">Default rate matrix</span></div>
+</div>
+<h4>Transition matrix - development sample</h4>
+<div class="divpar">
+ <div class="divpic"><img src="analysis/devpop_old_matrix_transition.png" />
+ <br /><span class="textlabel">Transition matrix</span></div>
+</div>
+</body></html>
